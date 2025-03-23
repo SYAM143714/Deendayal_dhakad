@@ -55,8 +55,8 @@ MULTI_FSUB = [int(channel_id) for channel_id in environ.get('MULTI_FSUB', '-1002
 # ============================
 # Payment Configuration
 # ============================
-QR_CODE = environ.get('QR_CODE', 'https://graph.org/file/e419f801841c2ee3db0fc.jpg')
-OWNER_UPI_ID = environ.get('OWNER_UPI_ID', 'deendayaldhaked@ybl')
+QR_CODE = environ.get('QR_CODE', '')
+OWNER_UPI_ID = environ.get('OWNER_UPI_ID', '')
 
 # ============================
 # MongoDB Configuration
@@ -64,7 +64,7 @@ OWNER_UPI_ID = environ.get('OWNER_UPI_ID', 'deendayaldhaked@ybl')
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://syamgollapudi94:<Y4*XNXSybk7$?BU>@cluster0.yz10u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_URI2 = environ.get('DATABASE_URI2', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "cluster0")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Deendayal_files')
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'syamgollapudi94')
 
 # ============================
 # Movie Notification & Update Settings
