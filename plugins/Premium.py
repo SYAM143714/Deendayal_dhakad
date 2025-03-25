@@ -6,6 +6,7 @@ from Script import script
 from info import ADMINS, PREMIUM_LOGS,LOG_CHANNEL
 from utils import get_seconds, temp
 from database.users_chats_db import db 
+import asyncio
 from pyrogram import Client, filters 
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -148,9 +149,12 @@ async def plan(client, message):
         ],[
             InlineKeyboardButton('ɢᴇᴛ ғʀᴇᴇ ᴛʀᴀɪʟ ғᴏʀ 𝟻 ᴍɪɴᴜᴛᴇs ☺️', callback_data='free')
         ],[            
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('❌ ᴄʟᴏꜱᴇ ❌', callback_data='close_data')
     ]]
-    await message.reply_photo(photo="https://graph.org/file/86da2027469565b5873d6.jpg", caption=script.PREMIUM_TEXT.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
+    msg = await message.reply_photo(photo="https://graph.org/file/86da2027469565b5873d6.jpg", caption=script.PREMIUM_TEXT.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
     await client.send_message(LOG_CHANNEL, log_message)
+    await asyncio.sleep(300)
+    await msg.delete()
+    await message.delete()
 
     
