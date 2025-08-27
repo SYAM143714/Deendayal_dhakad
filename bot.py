@@ -17,7 +17,7 @@ from database.users_chats_db import db
 from info import *
 from utils import temp
 from Script import script
-from plugins import web_server, check_expired_premium
+from plugins import web_server, check_expired_premium, keep_alive
 from Deendayal_botz.Bot import DeendayalBot
 from Deendayal_botz.util.keepalive import ping_server
 from Deendayal_botz.Bot.clients import initialize_clients
@@ -92,6 +92,7 @@ async def Deendayal_start():
     await app.setup()
     bind_address = "0.0.0.0"
     await web.TCPSite(app, bind_address, PORT).start()
+    DeendayalBot.loop.create_task(keep_alive())
     await idle()
     
 if __name__ == '__main__':
